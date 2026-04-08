@@ -9,7 +9,7 @@ export class CharacterDetailsService {
 
   http = inject(HttpClient);
 
-  getCharacterDetails(id: number) {
+  getCharacterDetails(id: string) {
     const url = `https://hp-api.onrender.com/api/character/${id}`;
     return this.http.get<Array<CharacterDetails>>(url);
   }

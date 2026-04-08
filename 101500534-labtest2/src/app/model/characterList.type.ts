@@ -1,5 +1,5 @@
 export type CharacterList = {
-    id: number;
+  id: string;
   name: string;
   alternate_names: string[];
   house: string;

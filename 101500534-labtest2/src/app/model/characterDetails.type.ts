@@ -1,5 +1,5 @@
 export type CharacterDetails =  {
-    id: number;
+  id: string;
     name: string ;
     alternate_names: string[];
     species: string;

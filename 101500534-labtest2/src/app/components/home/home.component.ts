@@ -3,10 +3,11 @@ import { HeaderComponent } from '../header/header.component';
 import { catchError } from 'rxjs/internal/operators/catchError';
 import { CharactersService } from '../../service/characters.service';
 import { CharacterList } from '../../model/characterList.type';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [HeaderComponent],
+  imports: [HeaderComponent, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

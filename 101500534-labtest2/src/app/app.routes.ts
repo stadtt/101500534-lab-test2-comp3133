@@ -7,7 +7,7 @@ export const routes: Routes = [{
 
 },
 {
-    path: 'character',
+    path: 'character/:id',
     pathMatch: 'full',
     loadComponent: () => import('./components/character-details/character-details.component').then(m => m.CharacterDetailsComponent)
 

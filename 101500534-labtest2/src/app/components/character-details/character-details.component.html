@@ -1,1 +1,17 @@
-<p>character-details works!</p>
+<app-header></app-header>
+
+@if (characterDetails(); as character) {
+  <section class="mx-auto max-w-4xl px-6 py-8 sm:px-10">
+    <div class="rounded-lg border border-stone-700 bg-stone-900 p-6 text-amber-100 shadow-lg">
+      <h2 class="text-2xl font-bold">{{ character.name }}</h2>
+      <p class="mt-2 text-amber-200">House: {{ character.house || 'Unknown' }}</p>
+      <p class="text-amber-200">Species: {{ character.species || 'Unknown' }}</p>
+      <p class="text-amber-200">Actor: {{ character.actor || 'Unknown' }}</p>
+      <p class="text-amber-200">Status: {{ character.alive ? 'Alive' : 'Deceased' }}</p>
+    </div>
+  </section>
+} @else {
+  <section class="mx-auto max-w-4xl px-6 py-8 text-amber-200 sm:px-10">
+    Loading character details...
+  </section>
+}
