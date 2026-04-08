@@ -50,7 +50,7 @@ https://101500534-lab-test2-comp3133-cj79.vercel.app/
 
 ![Main Character List](Screenshot%202026-04-08%20141257.png)
 
-### Character List (Alternate View)
+### Character List (Filter By Gryffindor)
 
 ![Character List Alternate](Screenshot%202026-04-08%20141307.png)
 
