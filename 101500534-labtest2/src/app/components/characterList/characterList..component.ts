@@ -6,11 +6,11 @@ import { CharactersService } from '../../service/characters.service';
 import { CharacterList } from '../../model/characterList.type';
 import { RouterLink } from '@angular/router';
 import { CharacterFilterService } from '../../service/character-filter.service';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { CharacterFilterComponent } from '../character-filter/character-filter.component';
 
 @Component({
   selector: 'app-home',
-  imports: [HeaderComponent, RouterLink, ReactiveFormsModule],
+  imports: [HeaderComponent, RouterLink, CharacterFilterComponent],
   templateUrl: './characterList.component.html',
   styleUrl: './characterList.component.css'
 })
@@ -20,7 +20,6 @@ export class characterListComponent {
   characterFilterService = inject(CharacterFilterService);
   characters = signal<Array<CharacterList>>([]);
   allCharacters = signal<Array<CharacterList>>([]);
-  house = new FormControl('', { nonNullable: true });
 
   ngOnInit(): void {
     this.charactersService
@@ -38,9 +37,7 @@ export class characterListComponent {
   
   }
 
-  filterByHouse(): void {
-    const houseValue = this.house.value.trim().toLowerCase();
-
+  onHouseSelected(houseValue: string): void {
     if (!houseValue) {
       this.characters.set(this.allCharacters());
       return;
