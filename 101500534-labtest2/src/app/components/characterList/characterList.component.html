@@ -16,7 +16,17 @@
               }
               <div>
                 <h3 class="text-xl font-bold">{{ character.name }}</h3>
-                <p class="text-sm text-amber-300">House: {{ character.house }}</p>
+                @if (character.house === 'Gryffindor') {
+                  <p class="text-md text-red-300">House: {{ character.house }}</p>
+                } @else if (character.house === 'Slytherin') {
+                  <p class="text-md text-green-300">House: {{ character.house }}</p>
+                } @else if (character.house === 'Ravenclaw') {
+                  <p class="text-md text-blue-300">House: {{ character.house }}</p>
+                } @else if (character.house === 'Hufflepuff') {
+                  <p class="text-md text-yellow-300">House: {{ character.house }}</p>
+                } @else {
+                  <p class="text-md text-amber-300">House: Unknown</p>
+                }
               </div>
             </div>
           </div>
