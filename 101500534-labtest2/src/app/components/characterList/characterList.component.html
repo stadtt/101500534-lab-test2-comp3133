@@ -1,11 +1,53 @@
 <app-header></app-header>
 
-@for (character of characters(); track character.id) {
-  <div [routerLink]="['/character', character.id]" class="mx-auto max-w-6xl px-6 py-6 sm:px-10 sm:py-8">
-    <div  class="flex flex-col items-center gap-4 rounded-lg bg-stone-800 p-4 text-center text-amber-100 shadow-lg">
-      <h2 class="text-xl font-bold">{{ character.name }}</h2>
-      <p class="text-sm text-amber-300">House: {{ character.house }}</p>
-        <img [src]="character.image" alt="{{ character.name }}" class="h-48 w-auto rounded-md object-cover">
+<section class="mx-auto max-w-7xl px-6 py-6 sm:px-10 sm:py-8">
+  <div class="grid gap-6 lg:grid-cols-[320px_minmax(0,1fr)] lg:items-start">
+    <aside class="rounded-xl border border-stone-700 bg-stone-900 p-5 text-amber-100 shadow-lg lg:sticky lg:top-6">
+      <h2 class="text-lg font-bold">Filter by House</h2>
+      <p class="mt-1 text-sm text-amber-200/80">Choose one of the four Hogwarts houses.</p>
+
+      <div class="mt-4 space-y-3">
+        <label for="house" class="block text-sm font-medium text-amber-100">House</label>
+        <select
+          id="house"
+          [formControl]="house"
+          class="w-full rounded-md border border-stone-600 bg-stone-950 px-3 py-2 text-amber-100 outline-none ring-amber-500 focus:ring-2"
+        >
+          <option value="">Select a house</option>
+          <option value="gryffindor">Gryffindor</option>
+          <option value="hufflepuff">Hufflepuff</option>
+          <option value="ravenclaw">Ravenclaw</option>
+          <option value="slytherin">Slytherin</option>
+        </select>
+
+        <button
+          type="button"
+          (click)="filterByHouse()"
+          class="w-full rounded-md bg-amber-500 px-4 py-2 font-semibold text-stone-900 transition hover:bg-amber-400"
+        >
+          Filter House
+        </button>
+      </div>
+    </aside>
+
+    <div>
+      <h2 class="mb-4 text-2xl font-bold text-amber-100">Character List</h2>
+
+      <div class="grid gap-4">
+        @for (character of characters(); track character.id) {
+          <div [routerLink]="['/character', character.id]" class="cursor-pointer rounded-lg bg-stone-800 p-4 text-amber-100 shadow-lg">
+            <div class="flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
+              @if (character.image) {
+                <img [src]="character.image" [alt]="character.name" class="h-40 w-32 rounded-md object-cover" />
+              }
+              <div>
+                <h3 class="text-xl font-bold">{{ character.name }}</h3>
+                <p class="text-sm text-amber-300">House: {{ character.house }}</p>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
     </div>
   </div>
-}
+</section>
