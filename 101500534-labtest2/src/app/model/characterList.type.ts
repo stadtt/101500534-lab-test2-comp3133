@@ -3,4 +3,5 @@ export type CharacterList = {
   name: string;
   alternate_names: string[];
   house: string;
+  image: string;
 };

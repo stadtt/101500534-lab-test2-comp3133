@@ -8,11 +8,11 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-home',
   imports: [HeaderComponent, RouterLink],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  templateUrl: './characterList.component.html',
+  styleUrl: './characterList.component.css'
 })
 
-export class HomeComponent {
+export class characterListComponent {
   charactersService = inject(CharactersService);
   characters = signal<Array<CharacterList>>([]);
 

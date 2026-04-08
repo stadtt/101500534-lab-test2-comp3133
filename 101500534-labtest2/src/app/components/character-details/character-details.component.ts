@@ -15,7 +15,7 @@ export class CharacterDetailsComponent {
       
       characterDetailsSerice = inject(CharacterDetailsService);
       route = inject(ActivatedRoute);
-  characterDetails = signal<CharacterDetails | null>(null);
+     characterDetails = signal<CharacterDetails | null>(null);
 
       ngOnInit(): void {
         const id = this.route.snapshot.paramMap.get('id');
