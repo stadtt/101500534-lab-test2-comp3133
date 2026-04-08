@@ -1,0 +1,12 @@
+{
+	"version": 2,
+	"installCommand": "cd 101500534-labtest2 && npm ci",
+	"buildCommand": "cd 101500534-labtest2 && npm run build",
+	"outputDirectory": "101500534-labtest2/dist/101500534-labtest2/browser",
+	"rewrites": [
+		{
+			"source": "/(.*)",
+			"destination": "/index.html"
+		}
+	]
+}
